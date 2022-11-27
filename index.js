@@ -109,7 +109,6 @@ export default class PinchZoomView extends Component {
         this.setState({ offsetX, offsetY, lastMovePinch: false });
       }
     }
-    console.log(this.state.scale)
     if (this.state.scale < 1.1) {
       let offsetX = 0;
       let offsetY = 0;
