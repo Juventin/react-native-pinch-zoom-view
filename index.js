@@ -105,6 +105,14 @@ export default class PinchZoomView extends Component {
       let offsetX = this.state.lastX + gestureState.dx / this.state.scale;
       let offsetY = this.state.lastY + gestureState.dy / this.state.scale;
       // if ( offsetX < 0  || offsetY <  0 )
+      if (this.state.scale > 1) {
+        this.setState({ offsetX, offsetY, lastMovePinch: false });
+      }
+    }
+    console.log(this.state.scale)
+    if (this.state.scale < 1.1) {
+      let offsetX = 0;
+      let offsetY = 0;
       this.setState({ offsetX, offsetY, lastMovePinch: false });
     }
   };
@@ -119,10 +127,9 @@ export default class PinchZoomView extends Component {
           {
             transform: [
               { scaleX: this.state.scale },
-              { scaleY: this.state.scale }
-              // ,
-              // { translateX: this.state.offsetX },
-              // { translateY: this.state.offsetY }
+              { scaleY: this.state.scale },
+              { translateX: this.state.offsetX },
+              { translateY: this.state.offsetY }
             ]
           }
         ]}
