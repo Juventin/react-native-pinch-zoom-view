@@ -119,9 +119,10 @@ export default class PinchZoomView extends Component {
           {
             transform: [
               { scaleX: this.state.scale },
-              { scaleY: this.state.scale },
-              { translateX: this.state.offsetX },
-              { translateY: this.state.offsetY }
+              { scaleY: this.state.scale }
+              // ,
+              // { translateX: this.state.offsetX },
+              // { translateY: this.state.offsetY }
             ]
           }
         ]}
